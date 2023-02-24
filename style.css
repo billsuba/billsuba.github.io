@@ -438,7 +438,7 @@ body {
 		var(--light),
 		var(--secondary) 30%
 	);
-	transition: background-color 0.2s;
+	/* transition: background-image 0.2s; */
 }
 
 .html {
