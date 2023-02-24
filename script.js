@@ -1,124 +1,176 @@
 // navbar
-const hamburger = document.querySelector(".nav-hamburger");
-const hamburgerIcon = hamburger.querySelector("i");
-const mobileMenu = document.querySelector(".menu-bar");
+class Navbar {
+	constructor() {
+		this.hamburger = document.querySelector(".nav-hamburger");
+		this.hamburgerIcon = this.hamburger.querySelector("i");
+		this.mobileMenu = document.querySelector(".m-navbar");
+		this.menu = document.querySelector(".m-nav-links");
 
-const menu = document.querySelector(".menu-links");
+		this.hamburger.addEventListener("click", this.toggleMenu.bind(this));
+		this.menu.addEventListener("click", this.toggleMenu.bind(this));
+	}
 
-function toggleMenu() {
-	hamburgerIcon.className =
-		hamburgerIcon.className === "fa-solid fa-bars"
-			? "fa-solid fa-xmark"
-			: "fa-solid fa-bars";
+	toggleMenu() {
+		this.hamburgerIcon.className =
+			this.hamburgerIcon.className === "fa-solid fa-bars"
+				? "fa-solid fa-xmark"
+				: "fa-solid fa-bars";
 
-	mobileMenu.classList.toggle("is-open");
+		this.mobileMenu.classList.toggle("is-open");
+	}
 }
 
-hamburger.addEventListener("click", toggleMenu);
-menu.addEventListener("click", toggleMenu);
+const navbar = new Navbar();
 
 // colors
-const dark = " rgb(40, 40, 40)";
-const light = " rgb(250, 250, 250)";
-const primary = " rgb(255, 220, 100)";
-const secondary = " rgb(255, 105, 80)";
-const darkdark = " rgb(25, 25, 25)";
+class Colors {
+	constructor() {
+		this.dark = " rgb(40, 40, 40)";
+		this.light = " rgb(250, 250, 250)";
+		this.primary = " rgb(255, 220, 100)";
+		this.secondary = " rgb(255, 105, 80)";
+		this.darkdark = " rgb(25, 25, 25)";
+	}
+}
 
 // dark mode
-const root = document.querySelector(":root");
-const rootStyle = window.getComputedStyle(root);
-const toggle = document.querySelectorAll(".dm-toggle");
+class DarkMode {
+	constructor() {
+		this.root = document.querySelector(":root");
+		this.rootStyle = window.getComputedStyle(this.root);
+		this.toggle = document.querySelectorAll(".dm-toggle");
 
-function toggleDm() {
-	toggle.forEach((el) => {
-		const toggleIcon = el.querySelector("i").querySelector("i");
+		this.colors = new Colors();
 
-		toggleIcon.className =
-			toggleIcon.className === "fa-solid fa-sun"
-				? "fa-solid fa-moon"
-				: "fa-solid fa-sun";
+		this.toggle.forEach((el) => {
+			el.addEventListener("click", () => {
+				this.toggleDm();
 
-		el.classList.toggle("dm");
-	});
+				if (
+					this.rootStyle.getPropertyValue("--dark") === this.colors.dark ||
+					this.rootStyle.getPropertyValue("--dark") === "rgb(40, 40, 40)"
+				) {
+					this.setColors(
+						this.colors.light,
+						this.colors.dark,
+						this.colors.secondary,
+						this.colors.primary
+					);
+				} else if (
+					this.rootStyle.getPropertyValue("--dark") === this.colors.light
+				) {
+					this.setColors(
+						this.colors.dark,
+						this.colors.light,
+						this.colors.primary,
+						this.colors.secondary
+					);
+				}
+			});
+		});
+	}
+
+	toggleDm() {
+		this.toggle.forEach((el) => {
+			const toggleIcon = el.querySelector("i").querySelector("i");
+
+			toggleIcon.className =
+				toggleIcon.className === "fa-solid fa-sun"
+					? "fa-solid fa-moon"
+					: "fa-solid fa-sun";
+
+			el.classList.toggle("dm");
+		});
+	}
+
+	setColors(dark, light, primary, secondary) {
+		this.root.style.setProperty("--dark", dark);
+		this.root.style.setProperty("--light", light);
+		this.root.style.setProperty("--primary", primary);
+		this.root.style.setProperty("--secondary", secondary);
+	}
 }
 
-toggle.forEach((el) => {
-	el.addEventListener("click", () => {
-		toggleDm();
-
-		if (
-			rootStyle.getPropertyValue("--dark") === dark ||
-			rootStyle.getPropertyValue("--dark") === "rgb(40, 40, 40)"
-		) {
-			root.style.setProperty("--dark", light);
-			root.style.setProperty("--light", dark);
-			root.style.setProperty("--primary", secondary);
-			root.style.setProperty("--secondary", primary);
-		} else if (rootStyle.getPropertyValue("--dark") === light) {
-			root.style.setProperty("--dark", dark);
-			root.style.setProperty("--light", light);
-			root.style.setProperty("--primary", primary);
-			root.style.setProperty("--secondary", secondary);
-		}
-	});
-});
+const darkMode = new DarkMode();
 
 // contact form
-const nameInput = document.querySelector("#name");
-const email = document.querySelector("#email");
-const message = document.querySelector("#message");
-const success = document.querySelector("#success");
-const errorNodes = document.querySelectorAll(".error");
-
-function validateForm() {
-	clearMessages();
-	let errorFlag = false;
-
-	if (nameInput.value.length < 1) {
-		errorNodes[0].innerText = "Name cannot be blank";
-		nameInput.classList.add("error-border");
-		errorFlag = true;
+class ContactForm {
+	constructor(nameInput, emailInput, messageInput, successMessage, errorNodes) {
+		this.nameInput = nameInput;
+		this.emailInput = emailInput;
+		this.messageInput = messageInput;
+		this.successMessage = successMessage;
+		this.errorNodes = errorNodes;
 	}
 
-	if (!emailIsValid(email.value)) {
-		errorNodes[1].innerText = "Invalid email address";
-		email.classList.add("error-border");
-		errorFlag = true;
+	validateForm() {
+		this.clearMessages();
+		let errorFlag = false;
+
+		if (this.nameInput.value.length < 1) {
+			this.errorNodes[0].innerText = "Name cannot be blank";
+			this.nameInput.classList.add("error-border");
+			errorFlag = true;
+		}
+
+		if (!this.emailIsValid(this.emailInput.value)) {
+			this.errorNodes[1].innerText = "Invalid email address";
+			this.emailInput.classList.add("error-border");
+			errorFlag = true;
+		}
+
+		if (this.messageInput.value.length < 1) {
+			this.errorNodes[2].innerText = "Please enter message";
+			this.messageInput.classList.add("error-border");
+			errorFlag = true;
+		}
+
+		if (!errorFlag) {
+			this.sendMail(
+				this.nameInput.value,
+				this.emailInput.value,
+				this.messageInput.value
+			);
+
+			this.successMessage.innerText = "Message Sent";
+		}
 	}
 
-	if (message.value.length < 1) {
-		errorNodes[2].innerText = "Please enter message";
-		message.classList.add("error-border");
-		errorFlag = true;
+	sendMail(name, email, msg) {
+		emailjs.send("service_3dux6ue", "template_wym3meq", {
+			from_name: email,
+			to_name: name,
+			message: msg,
+		});
 	}
 
-	if (!errorFlag) {
-		sendMail(nameInput.value, email.value, message.value);
+	clearMessages() {
+		this.errorNodes.forEach((el) => {
+			el.innerText = "";
+		});
 
-		success.innerText = "Message Sent";
+		this.successMessage.innerText = "";
+		this.nameInput.classList.remove("error-border");
+		this.emailInput.classList.remove("error-border");
+		this.messageInput.classList.remove("error-border");
+	}
+
+	emailIsValid(email) {
+		let pattern = /\S+@\S+\.\S+/;
+		return pattern.test(email);
 	}
 }
 
-function sendMail(name, email, msg) {
-	emailjs.send("service_3dux6ue", "template_wym3meq", {
-		from_name: email,
-		to_name: name,
-		message: msg,
-	});
-}
+// Usage example:
+const form = new ContactForm(
+	document.querySelector("#name"),
+	document.querySelector("#email"),
+	document.querySelector("#message"),
+	document.querySelector("#success"),
+	document.querySelectorAll(".error")
+);
 
-function clearMessages() {
-	for (let i = 0; i < errorNodes.length; i++) {
-		errorNodes[i].innerText = "";
-	}
-
-	success.innerText = "";
-	nameInput.classList.remove("error-border");
-	email.classList.remove("error-border");
-	message.classList.remove("error-border");
-}
-
-function emailIsValid(email) {
-	let pattern = /\S+@\S+\.\S+/;
-	return pattern.test(email);
-}
+document.querySelector("form").addEventListener("submit", (e) => {
+	e.preventDefault();
+	form.validateForm();
+});
