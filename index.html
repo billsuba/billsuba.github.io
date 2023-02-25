@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Bill's Portfolio</title>
 		<meta
 			name="description"
-			content="This portfolio project is to showcase my skills and projects as a Front End Web Developer." />
-		<meta name="keywords" content="HTML, CSS, JavaScript" />
-		<meta name="author" content="Bill Suba" />
-		<link rel="icon" type="image/x-icon" href="images/favicon.png" />
+			content="This portfolio project is to showcase my skills and projects as a Front End Web Developer.">
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="author" content="Bill Suba">
+		<link rel="icon" type="image/x-icon" href="images/favicon.png">
 
 		<!-- main CSS -->
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<div class="container">
@@ -28,7 +28,7 @@
 					<li><a href="#contact">CONTACT</a></li>
 				</ul>
 
-				<section class="nav-icons">
+				<div class="nav-icons">
 					<a
 						href="https://www.linkedin.com/in/billsuba"
 						target="_blank"
@@ -48,7 +48,7 @@
 						</i>
 					</span>
 					<!-- ^^ dark mode ^^ -->
-				</section>
+				</div>
 
 				<div class="nav-hamburger">
 					<i class="fa-solid fa-bars"></i>
@@ -65,7 +65,7 @@
 					<li><a href="#contact">CONTACT</a></li>
 				</ul>
 
-				<section class="m-nav-icons">
+				<div class="m-nav-icons">
 					<a
 						href="https://www.linkedin.com/in/billsuba"
 						target="_blank"
@@ -85,7 +85,7 @@
 						</i>
 					</span>
 					<!-- ^^ dark mode ^^ -->
-				</section>
+				</div>
 			</nav>
 			<!-- ^^ mobile menu ^^ -->
 
@@ -111,19 +111,19 @@
 							<a href="#contact">Hire Me</a>
 						</div>
 					</section>
-					<section class="cols cols1">
+					<div class="cols cols1">
 						<img
 							src="images/portrait.WebP"
 							alt="AI Generated Photo Of Me"
-							class="portrait" />
-					</section>
+							class="portrait">
+					</div>
 				</main>
 			</div>
 
 			<!-- skills page -->
 			<div>
 				<span class="top" id="skills"></span>
-				<main class="skills-container">
+				<div class="skills-container">
 					<h2>My Skills</h2>
 					<p>I Like To Craft Beautiful And Scalable Web Products</p>
 					<ul>
@@ -173,13 +173,13 @@
 							</div>
 						</li>
 					</ul>
-				</main>
+				</div>
 			</div>
 
 			<!-- project page -->
 			<div>
 				<span class="top" id="projects"></span>
-				<main class="projects-container">
+				<div class="projects-container">
 					<h2>My Projects</h2>
 					<p>Some Of My Recent Works</p>
 
@@ -204,7 +204,7 @@
 								>
 							</div>
 						</section>
-						<section class="projects-img" id="personal-portfolio"></section>
+						<div class="projects-img" id="personal-portfolio"></div>
 					</div>
 
 					<div class="projects-content">
@@ -223,7 +223,7 @@
 								<a href="#">Source Code</a>
 							</div>
 						</section>
-						<section class="projects-img" id="sample-project2"></section>
+						<div class="projects-img" id="sample-project2"></div>
 					</div>
 
 					<div class="projects-content">
@@ -242,9 +242,9 @@
 								<a href="#">Source Code</a>
 							</div>
 						</section>
-						<section class="projects-img" id="sample-project3"></section>
+						<div class="projects-img" id="sample-project3"></div>
 					</div>
-				</main>
+				</div>
 			</div>
 
 			<!-- contact page -->
@@ -257,11 +257,11 @@
 					<p>Let's Get In Touch!</p>
 
 					<label for="name">Name</label>
-					<input id="name" placeholder="Your name" />
+					<input id="name" placeholder="Your name">
 					<span class="error"></span>
 
 					<label for="email">Email</label>
-					<input type="email" id="email" placeholder="Your email" />
+					<input type="email" id="email" placeholder="Your email">
 					<span class="error"></span>
 
 					<label for="message">Message</label>
@@ -298,9 +298,8 @@
 
 		<!-- EmailJS -->
 		<script
-			type="text/javascript"
 			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-		<script type="text/javascript">
+		<script>
 			(function () {
 				emailjs.init("vlG7j383pUuQ58-g5");
 			})();
