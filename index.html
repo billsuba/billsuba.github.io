@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Bill's Portfolio</title>
 		<meta
 			name="description"
-			content="This portfolio project is to showcase my skills and projects as a Front End Web Developer.">
-		<meta name="keywords" content="HTML, CSS, JavaScript">
-		<meta name="author" content="Bill Suba">
-		<link rel="icon" type="image/x-icon" href="images/favicon.png">
+			content="This portfolio project is to showcase my skills and projects as a Front End Web Developer." />
+		<meta name="keywords" content="HTML, CSS, JavaScript" />
+		<meta name="author" content="Bill Suba" />
+		<link rel="icon" type="image/x-icon" href="images/favicon.png" />
 
 		<!-- main CSS -->
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<div class="container">
@@ -115,7 +115,7 @@
 						<img
 							src="images/portrait.WebP"
 							alt="AI Generated Photo Of Me"
-							class="portrait">
+							class="portrait" />
 					</div>
 				</main>
 			</div>
@@ -186,12 +186,34 @@
 					<div class="projects-content">
 						<section class="projects-text">
 							<div class="projects-desc">
+								<h3>To-Do List App</h3>
+								<p>
+									I created this To-Do List app using HTML, CSS, and JavaScript
+									with local storage functionality. It allows users to create,
+									edit, delete and mark tasks as completed. The app's modern and
+									clean design is easy to use and helps users stay organized and
+									manage their time efficiently.
+								</p>
+							</div>
+							<div class="projects-btns">
+								<a href="todo/index.html" target="_blank">See Live</a>
+								<a href="https://github.com/billsuba/todo" target="_blank"
+									>Source Code</a
+								>
+							</div>
+						</section>
+						<div class="projects-img" id="project-todo"></div>
+					</div>
+
+					<div class="projects-content">
+						<section class="projects-text">
+							<div class="projects-desc">
 								<h3>Personal Portfolio</h3>
 								<p>
 									I created a Personal Portfolio Website showcasing my recent
 									projects using my skills in HTML, CSS, and JavaScript. The
 									website includes features such as mobile responsiveness, an
-									interactive navbar, dark mode toggle, and horizontal scrolling
+									interactive navbar, dark modt toggle, and horizontal scrolling
 									for improved user experience.
 								</p>
 							</div>
@@ -204,26 +226,7 @@
 								>
 							</div>
 						</section>
-						<div class="projects-img" id="personal-portfolio"></div>
-					</div>
-
-					<div class="projects-content">
-						<section class="projects-text">
-							<div class="projects-desc">
-								<h3>Sample Project</h3>
-								<p>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod
-									inventore tempora pariatur corrupti in labore rerum. Aliquid
-									ratione sint deserunt porro cupiditate tenetur nesciunt, amet,
-									esse quidem neque ex accusamus.
-								</p>
-							</div>
-							<div class="projects-btns">
-								<a href="#">See Live</a>
-								<a href="#">Source Code</a>
-							</div>
-						</section>
-						<div class="projects-img" id="sample-project2"></div>
+						<div class="projects-img" id="project-portfolio"></div>
 					</div>
 
 					<div class="projects-content">
@@ -257,11 +260,11 @@
 					<p>Let's Get In Touch!</p>
 
 					<label for="name">Name</label>
-					<input id="name" placeholder="Your name">
+					<input id="name" placeholder="Your name" />
 					<span class="error"></span>
 
 					<label for="email">Email</label>
-					<input type="email" id="email" placeholder="Your email">
+					<input type="email" id="email" placeholder="Your email" />
 					<span class="error"></span>
 
 					<label for="message">Message</label>
@@ -297,8 +300,7 @@
 		</script>
 
 		<!-- EmailJS -->
-		<script
-			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script>
 			(function () {
 				emailjs.init("vlG7j383pUuQ58-g5");
