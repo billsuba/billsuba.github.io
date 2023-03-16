@@ -529,16 +529,20 @@ body {
 	transition: background-image 0.3s;
 }
 
-#personal-portfolio {
-	background-image: url(images/project-previews/personal-portfolio.webp);
+#project-portfolio {
+	background-image: url(images/project-previews/portfolio-dark.webp);
 }
 
-#personal-portfolio:hover {
-	background-image: url(images/project-previews/personal-portfolio-dark.webp);
+#project-portfolio:hover {
+	background-image: url(images/project-previews/portfolio.webp);
 }
 
-#sample-project2 {
-	background-image: url(images/sample-project2.WebP);
+#project-todo {
+	background-image: url(images/project-previews/todo-filled.webp);
+}
+
+#project-todo:hover {
+	background-image: url(images/project-previews/todo.webp);
 }
 
 #sample-project3 {
