@@ -545,8 +545,12 @@ body {
 	background-image: url(images/project-previews/todo.webp);
 }
 
-#sample-project3 {
-	background-image: url(images/sample-project3.WebP);
+#project-weather {
+	background-image: url(images/project-previews/weather-searched.webp);
+}
+
+#project-weather:hover {
+	background-image: url(images/project-previews/weather.webp);
 }
 
 .projects-text {
