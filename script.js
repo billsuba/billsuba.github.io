@@ -47,7 +47,7 @@ class DarkMode {
 				this.toggleDm();
 
 				if (
-					this.rootStyle.getPropertyValue("--dark") === this.colors.dark ||
+					this.rootStyle.getPropertyValue("--dark") === " rgb(40, 40, 40)" ||
 					this.rootStyle.getPropertyValue("--dark") === "rgb(40, 40, 40)"
 				) {
 					this.setColors(
@@ -57,7 +57,8 @@ class DarkMode {
 						this.colors.primary
 					);
 				} else if (
-					this.rootStyle.getPropertyValue("--dark") === this.colors.light
+					this.rootStyle.getPropertyValue("--dark") === " rgb(250, 250, 250)" ||
+					this.rootStyle.getPropertyValue("--dark") === "rgb(250, 250, 250)"
 				) {
 					this.setColors(
 						this.colors.dark,
